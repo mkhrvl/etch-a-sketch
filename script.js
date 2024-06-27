@@ -33,10 +33,17 @@ function createGrid(gridSize) {
             const rowItem = document.createElement('div');
             rowItem.classList.add('row__item');
             rowContainer.appendChild(rowItem);
+            rowItem.addEventListener('mouseenter', (e) => {
+                changeItemBackground(e);
+            })
         }
     }
 }
 
 function removeCurrentGrid() {
     container.replaceChildren();
+}
+
+function changeItemBackground(e) {
+    e.target.style.background = '#deb887';
 }
