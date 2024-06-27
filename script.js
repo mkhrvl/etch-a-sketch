@@ -35,6 +35,7 @@ function createGrid(gridSize) {
             rowContainer.appendChild(rowItem);
             rowItem.addEventListener('mouseenter', (e) => {
                 changeItemBackground(e);
+                decreaseOpacityGradually(e)
             })
         }
     }
@@ -45,5 +46,21 @@ function removeCurrentGrid() {
 }
 
 function changeItemBackground(e) {
-    e.target.style.background = '#deb887';
+    e.target.style.background = getRandomColor();
+}
+
+function getRandomColor() {
+    const MAX_RGB_VALUE = 255;
+    const redValue = Math.round(Math.random() * MAX_RGB_VALUE);
+    const greenValue = Math.round(Math.random() * MAX_RGB_VALUE);
+    const blueValue = Math.round(Math.random() * MAX_RGB_VALUE);
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+}
+
+function decreaseOpacityGradually(e) {
+    const opacity = getComputedStyle(e.target).opacity;
+    if (opacity >= 0) {
+        // use whole numbers instead of decimals to avoid JS calculation inconsistencies
+        e.target.style.opacity = (opacity * 100 - 10) / 100;
+    }
 }
