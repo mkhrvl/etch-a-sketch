@@ -17,6 +17,7 @@ body {
 	flex-flow: column nowrap;
 	height: 800px;
 	width: 800px;
+	background-color: black;
 }
 
 .row {
