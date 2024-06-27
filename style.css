@@ -1,0 +1,34 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100vh;
+	width: 100vh;
+}
+
+.row {
+	display: flex;
+	flex: 1;
+}
+
+.row__item {
+	flex: 1;
+	background-color: #f1e1cd;
+	transition: background-color 150ms ease-in-out;
+}
+
+.row__item:hover {
+	background-color: #deb887;
+}
