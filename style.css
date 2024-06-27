@@ -30,10 +30,6 @@ body {
 	transition: background-color 150ms ease-in-out;
 }
 
-.row__item:hover {
-	background-color: #deb887;
-}
-
 .btn-grid {
 	background-color: #f1e1cd;
 	border-radius: 5px;
