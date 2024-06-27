@@ -3,18 +3,40 @@ btnGrid.classList.add('btn-grid');
 btnGrid.textContent = 'Create A New Grid';
 document.body.appendChild(btnGrid);
 
+btnGrid.addEventListener('click', createNewGrid);
+
 const container = document.createElement('div');
 container.classList.add('container');
 document.body.appendChild(container);
 
-for (let i = 0; i < 16; i++) {
-    const rowContainer = document.createElement('div');
-    rowContainer.classList.add('row');
-    container.appendChild(rowContainer);
+const INITIAL_GRID_SIZE = 16;
+createGrid(INITIAL_GRID_SIZE)
 
-    for (let j = 0; j < 16; j++) {
-        const rowItem = document.createElement('div');
-        rowItem.classList.add('row__item');
-        rowContainer.appendChild(rowItem);
+function createNewGrid() {
+    const gridSize = prompt('Enter Number of Rows and Columns (limit of 100):');
+
+    if (gridSize <= 100) {
+        removeCurrentGrid();
+        createGrid(gridSize);
+    } else {
+        alert('Grid Size Too Large!');
     }
+}
+
+function createGrid(gridSize) {
+    for (let i = 0; i < gridSize; i++) {
+        const rowContainer = document.createElement('div');
+        rowContainer.classList.add('row');
+        container.appendChild(rowContainer);
+
+        for (let j = 0; j < gridSize; j++) {
+            const rowItem = document.createElement('div');
+            rowItem.classList.add('row__item');
+            rowContainer.appendChild(rowItem);
+        }
+    }
+}
+
+function removeCurrentGrid() {
+    container.replaceChildren();
 }
